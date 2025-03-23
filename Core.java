@@ -12,7 +12,10 @@ public class Core {
         // iniciando o scanner
         Scanner sc = new Scanner(System.in);
 
-        
+
+        // init var for to win or error
+        int winOrError = 1;
+
 
         // start menu
         boolean startMenu = true;
@@ -86,17 +89,21 @@ public class Core {
         // generate fighter
         if (characterSelect == 1) {
             // noah
+            Character player = new Character(80, 6, 80, 6, "Noah");
         } else if (characterSelect == 2) {
             // amelia
+            Character player = new Character(50, 4, 100, 10, "Amelia");
         } else if (characterSelect == 3) {
             // ethan
+            Character player = new Character(100, 10, 60, 3, "Ethan");
         } else {
             System.out.println("\nErro na geraçao do lutador escolhido!\n");
+            winOrError = 2;
         }
 
 
         // aleatorizar o inimigo
-        int oponent = Resorces.getRandomNumber();
+        int oponent = Resorces.getRandomNumber(2);
         if (oponent == 0) {
             // inimigo 1
 
@@ -108,6 +115,7 @@ public class Core {
 
         } else {
             System.out.println("Erro na randomização do oponente!");
+            winOrError = 2;
         }
 
 
@@ -118,5 +126,22 @@ public class Core {
         } while (fightLoop == true);
 
 
+        // iniciando to check for win ou erro
+        switch (winOrError) {
+            case 1:
+                // normal
+                System.out.println("Aviso - WinOrErro esta com problemas: verifique!");
+                break;
+            case 2:
+                // erro no codigo
+                System.out.println("\nDevido a algun erro no codigo, o jogo está sendo finalizado!\n");
+                break;
+            case 3:
+                // win
+                break;
+            default:
+                // erro geral no winOrError
+                break;
+        }
     }
 }

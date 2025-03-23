@@ -21,9 +21,9 @@ public class Resorces {
     }
 
     // randomizar um numero
-    public static int getRandomNumber() {
+    public static int getRandomNumber(int scale) {
         // init random
         Random random = new Random();
-        return random.nextInt(2);
+        return random.nextInt(scale);
     }
 }
