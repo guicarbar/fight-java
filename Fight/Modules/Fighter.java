@@ -1,9 +1,7 @@
 package Fight.Modules;
 
-import javax.lang.model.element.Name;
-
 // character
-public class Character {
+public class Fighter {
     // definindo as variaveis
     protected int life;
     protected int strength;
@@ -13,7 +11,7 @@ public class Character {
 
 
     // constructor for character
-    public Character(int life, int strength, int stamina, int speed, String name) {
+    public Fighter(int life, int strength, int stamina, int speed, String name) {
         this.life = life;
         this.strength = strength;
         this.stamina = stamina;
