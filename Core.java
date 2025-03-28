@@ -3,12 +3,13 @@ import java.util.Scanner;
 
 // imports internos
 import Fight.Modules.Enemy;
+import Fight.Modules.Fight;
 import Fight.Modules.Fighter;
 import Fight.Resorces.Resources;
 
 
 // core main class
-public class Core {
+public class Core extends Fight {
     // main function
     public static void main(String[] args) {
         // iniciando o scanner
@@ -85,23 +86,10 @@ public class Core {
                 System.out.println("\nApenas numeros para começar!\n");
             }
         } while (characterSelectLoop == true);
-        
-        
-        // generate fighter
-        Fighter player = null;
-        if (characterSelect == 1) {
-            // noah
-            player = new Fighter(80, 6, 80, 6, "Noah");
-        } else if (characterSelect == 2) {
-            // amelia
-            player = new Fighter(50, 4, 100, 10, "Amelia");
-        } else if (characterSelect == 3) {
-            // ethan
-            player = new Fighter(100, 10, 60, 3, "Ethan");
-        } else {
-            System.out.println("\nErro na geraçao do lutador escolhido!\n");
-            winOrError = 2;
-        }
+
+
+        // gem player
+        generateFighter(characterSelect);
 
 
         // iniciando character
@@ -139,6 +127,20 @@ public class Core {
                 System.out.println("Ou inimigo ou player nn foi criado corretamente");
             } else {
                 // luta
+                System.out.println("Qual será sua ação ?\n1. Jab direto.\n2. Chute baixo.\n3. Cruzado de direita.\n4. Chute alto.\n5. Empurrão.\n6. Defender.\n\nDigite apenas o numero da opção!");
+                String golpe = sc.nextLine();
+
+                // verifica a escolha
+                if (Resources.isValidString(golpe) == 2) {
+                    // executa  a luta
+                    // alet o golpe do inimigo
+                    int enemyGolpe = Resources.getRandomNumber(6) + 1;
+
+                    // simula oq vai acontecer na luta
+
+                } else {
+                    System.out.println("\nEscolha uma das opções!\n");
+                }
             }
         } while (fightLoop == true);
 
