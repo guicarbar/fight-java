@@ -3,13 +3,13 @@ import java.util.Scanner;
 
 // imports internos
 import Fight.Modules.Enemy;
-import Fight.Modules.Fight;
 import Fight.Modules.Fighter;
+import Fight.Modules.Fight;
 import Fight.Resorces.Resources;
 
 
 // core main class
-public class Core extends Fight {
+public class Core {
     // main function
     public static void main(String[] args) {
         // iniciando o scanner
@@ -88,9 +88,22 @@ public class Core extends Fight {
         } while (characterSelectLoop == true);
 
 
-        // gem player
-        generateFighter(characterSelect);
+        // var for fighter
+        Fighter player = null;
 
+        // gem player
+        if (characterSelect == 1) {
+            // noah
+            player = new Fighter(80, 6, 80, 6, "Noah");
+        } else if (characterSelect == 2) {
+            // amelia
+            player = new Fighter(50, 4, 100, 10, "Amelia");
+        } else if (characterSelect == 3) {
+            // ethan
+            player = new Fighter(100, 10, 60, 3, "Ethan");
+        } else {
+            System.out.println("\nErro na geraçao do lutador escolhido!\n");
+        }
 
         // iniciando character
         System.out.println("\nVocê escolheu: " + player.getName() + "!");
@@ -118,6 +131,9 @@ public class Core extends Fight {
         System.out.println("\nVamos escolher seu oponente ...\nSeu inimigo essa noite sera: " + enemy.getName() + "!\n");
 
 
+        // inicia o objeto luta
+        Fight luta = new Fight(player, enemy);
+
         // iniciando a luta
         boolean fightLoop = true;
         do {
@@ -137,7 +153,7 @@ public class Core extends Fight {
                     int enemyGolpe = Resources.getRandomNumber(6) + 1;
 
                     // simula oq vai acontecer na luta
-
+                    
                 } else {
                     System.out.println("\nEscolha uma das opções!\n");
                 }
