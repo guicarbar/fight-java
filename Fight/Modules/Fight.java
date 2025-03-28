@@ -11,6 +11,11 @@ public class Fight {
         this.enemy = enemy;
     }
 
-
-
+    // metods for fiht
+    public static void comparGolpes(int playerGolpe, int enemyGolpe) {
+        // verificador
+        if (playerGolpe == enemyGolpe) {
+        
+        }
+    }
 }

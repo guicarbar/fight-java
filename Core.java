@@ -153,7 +153,7 @@ public class Core {
                     int enemyGolpe = Resources.getRandomNumber(6) + 1;
 
                     // simula oq vai acontecer na luta
-                    
+                    Fight.comparGolpes(Integer.parseInt(golpe), enemyGolpe);
                 } else {
                     System.out.println("\nEscolha uma das opções!\n");
                 }
