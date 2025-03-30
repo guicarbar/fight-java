@@ -1,5 +1,8 @@
 package Fight.Modules;
 
+// import
+import Fight.Resorces.Resources;
+
 // character
 public class Fighter {
     // definindo as variaveis
@@ -27,5 +30,35 @@ public class Fighter {
     public int getSpeed() {return speed;}
     public String getName() {return name;}
 
-    //
+
+    // calcular jab direto
+    public void jab(int speed, String name) {
+        int pushNumb = Resources.getRandomNumber(speed) + 1;
+        switch (pushNumb) {
+            case 1:
+                System.out.println(name + " conseguiu dar " + pushNumb +" soco!");
+                break;
+            case 2:
+                System.out.println(name + " conseguiu dar " + pushNumb +" soco!");
+                break;
+            case 3:
+                System.out.println(name + " conseguiu dar " + pushNumb +" soco!");
+                break;
+            case 4:
+                System.out.println(name + " conseguiu dar " + pushNumb +" soco!");
+                break;
+            case 5:
+                System.out.println(name + " conseguiu dar " + pushNumb +" soco!");
+                break;
+            default:
+                System.out.println("erro no soco");
+                break;
+        }
+    }
+
+
+    // calcular chute baixo
+    public void lowKick() {
+
+    }
 }

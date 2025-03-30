@@ -12,19 +12,20 @@ public class Fight {
     }
 
 
-    // golpes iguais
-    private static void equalsGolpes(int golpe) {
-        switch (golpe) {
+    // calcular round
+    public static void calcRound(int playerGolpe, int enemyGolpe) {
+        // golpes player
+        switch (playerGolpe) {
             case 1:
-                // jab
+                // jab direto
 
                 break;
             case 2:
-                // chute baixo
+                //  chute baixo
 
                 break;
             case 3:
-                // cruzado
+                // Cruzado de direita
 
                 break;
             case 4:
@@ -40,28 +41,40 @@ public class Fight {
 
                 break;
             default:
-                // ble
-
+                System.out.println("erro");
                 break;
         }
-    }
 
 
-    // golpes diferentes
-    private static void diferentsGolpes(int playerGolpe, int enemyGolpe) {
-            
-    }
+        // golpes enemy
+        switch (enemyGolpe) {
+            case 1:
+                // jab direto
 
+                break;
+            case 2:
+                //  chute baixo
 
-    // metods for fiht
-    public static void comparGolpes(int playerGolpe, int enemyGolpe) {
-        // verificador
-        if (playerGolpe == enemyGolpe) {
-            // para golpes iguais
-            equalsGolpes(playerGolpe);
-        } else {
-            // para golpes diferentes
-            diferentsGolpes(playerGolpe, enemyGolpe);
+                break;
+            case 3:
+                // Cruzado de direita
+
+                break;
+            case 4:
+                // chute alto
+
+                break;
+            case 5:
+                // empurrar
+
+                break;
+            case 6:
+                // defender
+
+                break;
+            default:
+                System.out.println("erro");
+                break;
         }
     }
 }

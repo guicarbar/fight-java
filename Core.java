@@ -94,13 +94,13 @@ public class Core {
         // gem player
         if (characterSelect == 1) {
             // noah
-            player = new Fighter(80, 6, 80, 6, "Noah");
+            player = new Fighter(80, 6, 80, 3, "Noah");
         } else if (characterSelect == 2) {
             // amelia
-            player = new Fighter(50, 4, 100, 10, "Amelia");
+            player = new Fighter(50, 4, 100, 5, "Amelia");
         } else if (characterSelect == 3) {
             // ethan
-            player = new Fighter(100, 10, 60, 3, "Ethan");
+            player = new Fighter(100, 10, 60, 1, "Ethan");
         } else {
             System.out.println("\nErro na geraçao do lutador escolhido!\n");
         }
@@ -113,22 +113,25 @@ public class Core {
         Enemy enemy = null;
         if (oponent == 0) {
             // inimigo 1 - Klauss
-            enemy = new Enemy(70, 5, 90, 7, "Klauss");
-            System.out.println("");
+            enemy = new Enemy(70, 5, 90, 3, "Klauss");
         } else if (oponent == 1) {
             // oponente 2 - Beatrice
-            enemy = new Enemy(80, 9, 70, 4, "Beatrice");
+            enemy = new Enemy(80, 9, 70, 2, "Beatrice");
         } else if (oponent == 2) {
             // oponent 3 - Dutch
-            enemy = new Enemy(60, 5, 80, 9, "Dutch");
+            enemy = new Enemy(60, 5, 80, 4, "Dutch");
         } else {
             System.out.println("Erro na randomização do oponente!");
             winOrError = 2;
         }
 
 
+        // entrando no ring
+        System.out.println(player.getName() + " Entra  no ring! Se preparando para a batalha olha para us frente e vê seu oponete nessa noite ...");
+
+
         // apresentando o inimigo para a luta
-        System.out.println("\nVamos escolher seu oponente ...\nSeu inimigo essa noite sera: " + enemy.getName() + "!\n");
+        System.out.println("\n Do outro lad do ring seu oponetne entra e a multidão vai a loucura! Seu  oponente da noite é: " + enemy.getName());
 
 
         // inicia o objeto luta
@@ -153,7 +156,7 @@ public class Core {
                     int enemyGolpe = Resources.getRandomNumber(6) + 1;
 
                     // simula oq vai acontecer na luta
-                    Fight.comparGolpes(Integer.parseInt(golpe), enemyGolpe);
+                    Fight.calcRound(Integer.parseInt(golpe), enemyGolpe);
                 } else {
                     System.out.println("\nEscolha uma das opções!\n");
                 }
