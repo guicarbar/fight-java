@@ -15,7 +15,11 @@ public class Fight {
     public static void comparGolpes(int playerGolpe, int enemyGolpe) {
         // verificador
         if (playerGolpe == enemyGolpe) {
-        
+            // para golpes iguais
+
+        } else {
+            // para golpes diferentes
+            
         }
     }
 }
