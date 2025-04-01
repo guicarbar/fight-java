@@ -76,5 +76,8 @@ public class Fight {
                 System.out.println("erro");
                 break;
         }
+
+
+        // iniciando o round
     }
 }

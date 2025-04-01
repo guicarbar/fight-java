@@ -32,28 +32,30 @@ public class Fighter {
 
 
     // calcular jab direto
-    public void jab(int speed, String name) {
-        int pushNumb = Resources.getRandomNumber(speed) + 1;
-        switch (pushNumb) {
-            case 1:
-                System.out.println(name + " conseguiu dar " + pushNumb +" soco!");
-                break;
-            case 2:
-                System.out.println(name + " conseguiu dar " + pushNumb +" soco!");
-                break;
-            case 3:
-                System.out.println(name + " conseguiu dar " + pushNumb +" soco!");
-                break;
-            case 4:
-                System.out.println(name + " conseguiu dar " + pushNumb +" soco!");
-                break;
-            case 5:
-                System.out.println(name + " conseguiu dar " + pushNumb +" soco!");
-                break;
-            default:
-                System.out.println("erro no soco");
-                break;
-        }
+    public void jab() {
+        // dano total
+        int danoTotal = 0;
+
+        // numero de socos
+        int punchNumbers = Resources.getRandomNumber(speed) + 1;
+
+        // codigo pros socos
+       for (int i = 0; i <= punchNumbers; i++) {
+           // verifica estamina
+           if (stamina >= 3) {
+               System.out.println("Narradaor: " + getName() + " acerta outro soco!");
+               danoTotal += strength - i;
+               stamina -= 3;
+           } else {
+               // sem estamina pra isso
+           }
+       }
+    }
+
+
+    // chute baixo
+    public void lowKick() {
+        // dano total
     }
 
 
