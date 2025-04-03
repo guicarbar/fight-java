@@ -55,12 +55,97 @@ public class Fighter {
 
     // chute baixo
     public void lowKick() {
-        // dano total
+        // inicia o dano total
+        int danoTotal = 0;
+
+        if (speed <= 3) {
+            // dano total
+            int kickAin = Resources.getRandomNumber(2);
+
+            // verifica se acertou
+            if (kickAin == 0) {
+                // acertou
+                danoTotal = strength /2;
+            } else {
+                // errou o chute
+            }
+        } else {
+            danoTotal = strength /2;
+        }
     }
 
 
-    // calcular chute baixo
-    public void lowKick() {
+    // cruzado de direita
+    public void cruzado() {
+        // luck for golpe
+        int luck = Resources.getRandomNumber(10) + 1;
 
+        switch (speed) {
+            case 1:
+                if (luck >= 7) {
+                    // acerta
+                } else {
+                    // erra
+                }
+                break;
+            case 2:
+                if (luck >= 6) {
+                    // acerta
+                } else {
+                    // erra
+                }
+                break;
+            case 3:
+                if (luck >= 5) {
+                    // acerta
+                } else {
+                    // erra
+                }
+                break;
+            case 4:
+                if (luck >= 4) {
+                    // acerta
+                } else {
+                    // erra
+                }
+                break;
+            case 5:
+                if (luck >= 3) {
+                    // acerta
+                } else {
+                    // erra
+                }
+                break;
+            default:
+                // erro
+                break;
+        }
+    }
+
+
+    // chute alto
+    public void highKick() {
+        if (speed <=3 ) {
+            int luck = Resources.getRandomNumber(2);
+            if (luck == 0) {
+                // acerta
+            } else {
+                // erra
+            }
+        } else {
+            // acerta
+        }
+    }
+
+
+    // empurrar
+    public boolean empurrar() {
+        return true;
+    }
+    
+
+    // defender
+    public boolean defesa() {
+        return true;
     }
 }
