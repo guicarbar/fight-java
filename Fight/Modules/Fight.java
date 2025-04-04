@@ -1,5 +1,7 @@
 package Fight.Modules;
 
+import java.lang.foreign.StructLayout;
+
 public class Fight {
     // puxando os objetos
     private Fighter player;
@@ -13,32 +15,28 @@ public class Fight {
 
 
     // calcular round
-    public static void calcRound(int playerGolpe, int enemyGolpe) {
+    public boolean calcRound(int playerGolpe, int enemyGolpe) {
+        // init dano
+        int danoPlayer = 0;
+        int danoEnemy = 0;
+
         // golpes player
         switch (playerGolpe) {
             case 1:
                 // jab direto
-
+                danoPlayer = player.jab();
                 break;
             case 2:
                 //  chute baixo
-
+                danoPlayer = player.lowkick();
                 break;
             case 3:
                 // Cruzado de direita
-
+                danoPlayer = player.cruzado();
                 break;
             case 4:
                 // chute alto
-
-                break;
-            case 5:
-                // empurrar
-
-                break;
-            case 6:
-                // defender
-
+                danoPlayer = player.kick();
                 break;
             default:
                 System.out.println("erro");
@@ -50,34 +48,42 @@ public class Fight {
         switch (enemyGolpe) {
             case 1:
                 // jab direto
-
+                danoEnemy = enemy.jab();
                 break;
             case 2:
                 //  chute baixo
-
+                danoEnemy = enemy.lowkick();
                 break;
             case 3:
                 // Cruzado de direita
-
+                danoEnemy = enemy.cruzado();
                 break;
             case 4:
                 // chute alto
-
-                break;
-            case 5:
-                // empurrar
-
-                break;
-            case 6:
-                // defender
-
+                danoEnemy = enemy.kick();
                 break;
             default:
                 System.out.println("erro");
                 break;
         }
 
+        // calc menos vida
+        if (danoPlayer > danoEnemy) {
+            danoPlayer += 2;
+        } else {
+            danoEnemy += 2;
+        }
 
-        // iniciando o round
+        // int lifes analiser
+        boolean playerStatus = player.reduxlife(danoEnemy);
+        boolean enemyStatus = enemy.reduxlife(danoPlayer);
+
+
+        // analisa a vida dos dois
+        if (playerStatus == true && enemyStatus == true) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }

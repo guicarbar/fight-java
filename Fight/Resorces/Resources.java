@@ -39,6 +39,4 @@ public class Resources {
     public static boolean characterCreated(Fighter obj) {return obj != null;}
     public static boolean enemyCreated(Enemy obj) {return obj != null;}
 
-
-    //
 }

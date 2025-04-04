@@ -94,13 +94,13 @@ public class Core {
         // gem player
         if (characterSelect == 1) {
             // noah
-            player = new Fighter(80, 6, 80, 3, "Noah");
+            player = new Fighter(80, 7, 3, "Noah");
         } else if (characterSelect == 2) {
             // amelia
-            player = new Fighter(50, 4, 100, 5, "Amelia");
+            player = new Fighter(50, 4, 5, "Amelia");
         } else if (characterSelect == 3) {
             // ethan
-            player = new Fighter(100, 10, 60, 1, "Ethan");
+            player = new Fighter(100, 10, 1, "Ethan");
         } else {
             System.out.println("\nErro na geraçao do lutador escolhido!\n");
         }
@@ -113,13 +113,13 @@ public class Core {
         Enemy enemy = null;
         if (oponent == 0) {
             // inimigo 1 - Klauss
-            enemy = new Enemy(70, 5, 90, 3, "Klauss");
+            enemy = new Enemy(70, 5, 3, "Klauss");
         } else if (oponent == 1) {
             // oponente 2 - Beatrice
-            enemy = new Enemy(80, 9, 70, 2, "Beatrice");
+            enemy = new Enemy(80, 9, 2, "Beatrice");
         } else if (oponent == 2) {
             // oponent 3 - Dutch
-            enemy = new Enemy(60, 5, 80, 4, "Dutch");
+            enemy = new Enemy(60, 5, 4, "Dutch");
         } else {
             System.out.println("Erro na randomização do oponente!");
             winOrError = 2;
@@ -146,7 +146,7 @@ public class Core {
                 System.out.println("Ou inimigo ou player nn foi criado corretamente");
             } else {
                 // luta
-                System.out.println("Qual será sua ação ?\n1. Jab direto.\n2. Chute baixo.\n3. Cruzado de direita.\n4. Chute alto.\n5. Empurrão.\n6. Defender.\n\nDigite apenas o numero da opção!");
+                System.out.println("Qual será sua ação ?\n1. Jab direto.\n2. Chute baixo.\n3. Cruzado de direita.\n4. Chute alto.\n\nDigite apenas o numero da opção!");
                 String golpe = sc.nextLine();
 
                 // verifica a escolha
@@ -156,7 +156,15 @@ public class Core {
                     int enemyGolpe = Resources.getRandomNumber(6) + 1;
 
                     // simula oq vai acontecer na luta
-                    Fight.calcRound(Integer.parseInt(golpe), enemyGolpe);
+                    boolean fightStatus = Fight.calcRound(Integer.parseInt(golpe), enemyGolpe);
+
+                    // verifica se a luta vai continuar
+                    if (fightStatus == false) {
+                        // luta termina
+                        fightLoop = false;
+                    } else {
+                        // luta continua
+                    }
                 } else {
                     System.out.println("\nEscolha uma das opções!\n");
                 }
@@ -181,5 +189,9 @@ public class Core {
                 // erro geral no winOrError
                 break;
         }
+
+
+        // analisa quem ganhou a luta
+
     }
 }
