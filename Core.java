@@ -156,10 +156,10 @@ public class Core {
                     int enemyGolpe = Resources.getRandomNumber(6) + 1;
 
                     // simula oq vai acontecer na luta
-                    boolean fightStatus = Fight.calcRound(Integer.parseInt(golpe), enemyGolpe);
+                    boolean fightStatus = luta.calcRound(Integer.parseInt(golpe), enemyGolpe);
 
                     // verifica se a luta vai continuar
-                    if (fightStatus == false) {
+                    if (fightStatus == true) {
                         // luta termina
                         fightLoop = false;
                     } else {

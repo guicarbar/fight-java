@@ -67,7 +67,7 @@ public class Fight {
                 break;
         }
 
-        // calc menos vida
+        // calc de critico
         if (danoPlayer > danoEnemy) {
             danoPlayer += 2;
         } else {

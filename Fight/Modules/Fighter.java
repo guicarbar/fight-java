@@ -57,8 +57,10 @@ public class Fighter {
 
         // verifica a vida
         if (life <= 0) {
+            // morreu
             return false;
         } else {
+            // vivo
             return true;
         }
     }
