@@ -15,11 +15,6 @@ public class Core {
         // iniciando o scanner
         Scanner sc = new Scanner(System.in);
 
-
-        // init var for to win or error
-        int winOrError = 1;
-
-
         // start menu
         boolean startMenu = true;
         do {
@@ -122,7 +117,6 @@ public class Core {
             enemy = new Enemy(60, 5, 4, "Dutch");
         } else {
             System.out.println("Erro na randomização do oponente!");
-            winOrError = 2;
         }
 
 
@@ -131,7 +125,7 @@ public class Core {
 
 
         // apresentando o inimigo para a luta
-        System.out.println("\n Do outro lad do ring seu oponetne entra e a multidão vai a loucura! Seu  oponente da noite é: " + enemy.getName());
+        System.out.println("\n Do outro lad do ring seu oponetne entra e a multidão vai a loucura! Seu  oponente da noite é: " + enemy.getName() + "\n");
 
 
         // inicia o objeto luta
@@ -142,7 +136,6 @@ public class Core {
         do {
             // verifica
             if (!Resources.characterCreated(player) && !Resources.enemyCreated(enemy)) {
-                winOrError = 2;
                 System.out.println("Ou inimigo ou player nn foi criado corretamente");
             } else {
                 // luta
@@ -171,27 +164,19 @@ public class Core {
             }
         } while (fightLoop == true);
 
+        // verifica quem ganhou o game
+        boolean playerLife = player.searchLife();
+        boolean enemyLife = enemy.searchLife();
 
-        // iniciando to check for win ou erro
-        switch (winOrError) {
-            case 1:
-                // normal
-                System.out.println("Aviso - WinOrErro esta com problemas: verifique!");
-                break;
-            case 2:
-                // erro no codigo
-                System.out.println("\nDevido a algun erro no codigo, o jogo está sendo finalizado!\n");
-                break;
-            case 3:
-                // win
-                break;
-            default:
-                // erro geral no winOrError
-                break;
+        if (playerLife == false && enemyLife == true) {
+            // player morreu
+            System.out.println("\nNarrador: Parece que " + player.getName() + " caiu no ring! e a luta chega ao final!\n\nSeu oponente ganhou a briga!\n" + enemy.getName() + " WINS!\n");
+        } else if (enemyLife == false && playerLife == true) {
+            // player ganhou
+            System.out.println("\nNarrador: Parece que " + enemy.getName() + " caiu no ring! e a luta chega ao final!\n\nVocê ganhou!\n" + player.getName() + " WINS!\n");
+        } else if (playerLife == false && enemyLife == false) {
+            // empate
+            System.out.println("\nNarrador: Parece que tanto " + player.getName() + " e " + enemy.getName() + " caiuram no ring!\nAssim a luta chega ao final com um empate!\n");
         }
-
-
-        // analisa quem ganhou a luta
-
     }
 }

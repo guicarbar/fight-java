@@ -35,7 +35,16 @@ public class Enemy extends Fighter {
         // reduz a vida
         life -= dano;
 
+        // narrador falando
+        System.out.println("\nNarrador: O golpe parece ter tirado " + dano + " de dano do seu oponente!\n");
+
         // verifica a vida
+        boolean lifeTest = searchLife();
+        return lifeTest;
+    }
+
+    // verifica vida para win
+    public boolean searchLife() {
         if (life <= 0) {
             // morreu
             return false;

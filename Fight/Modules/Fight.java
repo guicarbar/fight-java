@@ -81,8 +81,10 @@ public class Fight {
 
         // analisa a vida dos dois
         if (playerStatus == true && enemyStatus == true) {
+            // luta continua
             return false;
         } else {
+            // luta acaba
             return true;
         }
     }
